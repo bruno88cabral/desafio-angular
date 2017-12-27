@@ -1,0 +1,25 @@
+{
+  "name": "desafio",
+  "description": "desafio angular",
+  "main": "index.js",
+  "authors": 
+    "Bruno Cabral"
+  ,
+  "license": "MIT",
+  "keywords": [
+    "desafio",
+    "angular",
+    "game"
+  ],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "bootstrap": "4.0.0-beta.2"
+  }
+}

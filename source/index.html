@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-br" ng-app="desafio">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="description" content="Desafio S2IT">
+	<meta name="keywords" content="desafio, S2IT">
+	<title>Desafio do Ataque</title>
+	<link rel="stylesheet" href="css/style.css">
+	<script src="js/lib/angular.min.js"></script>
+	<script src="js/main.js"></script>
+	<script src="js/controllers/batalha-controller.js"></script>
+	<script src="js/services/battle-services.js"></script>
+</head>
+<body ng-controller="BatalhaController">
+	<main class="container">		
+		<section class="arena">
+			<div class="player-1">
+				<p class=nome>Jogador 01</p>
+					<div class="player-display">
+						<div id='head' ng-hide="life[0]  < 20"></div>
+						<div id='body' ng-hide="life[0]  <= 20">
+						  <div class='arm' id='left' ng-hide="life[0] <= 40">
+						    <div class='hand'></div>
+						  </div>
+						  <div class='arm' id='right' ng-hide="life[0] <= 60">
+						    <div class='hand'></div>
+						  </div>				  
+						</div>
+						<div id='pants' ng-hide="life[0] <= 80"></div>
+					</div>
+				<div class="card">
+					<p class="life">Vida: {{life[0]}}%</p>
+					<progress id="progress-one" value="{{life[0]}}" max="100"></progress>
+					<button class="botao-ataque" ng-click= 'ataque1()' ng-disabled="life[0] <= 0 || life[1] == 0">Atacar</button>
+				</div>			
+				
+			</div>
+			<div class="player-2">
+				<p class="nome">Jogador 02</p>
+				<div class="player-display">
+					<div  id='head' ng-hide="life[1] < 20"></div>
+					<div id='body' ng-hide="life[1] <= 20">
+					  <div ng-hide="life[1] <= 40" class='arm' id='left'>
+					    <div class='hand'></div>
+					  </div>
+					  <div ng-hide="life[1] <= 60" class='arm' id='right'>
+					    <div class='hand'></div>
+					  </div>				  
+					</div>
+					<div ng-hide="life[1] <= 80" id='pants'></div>
+				</div>
+				<div class="card">
+					<p class="life">Vida: {{life[1]}}%</p>
+					<progress id="progress-two" value="{{life[1]}}" max="100"></progress>
+					<button class="botao-ataque" ng-click= 'ataque2()' ng-disabled="life[0] == 0 || life[1] == 0">Atacar</button>
+				</div>
+			</div>			
+		</section>
+		<button class="botao-reiniciar" ng-click="reiniciar()">Reiniciar</button>
+		<div ng-view="mensagem.length" class="mensagem">{{mensagem}}</div>
+	</main>
+</body>
+</html>
